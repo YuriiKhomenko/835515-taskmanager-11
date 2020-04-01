@@ -107,10 +107,12 @@ const createBoardTemplate = () => {
         <a href="#" class="board__filter">SORT BY DATE up</a>
         <a href="#" class="board__filter">SORT BY DATE down</a>
       </div>
-
-      <div class="board__tasks"></div>
     </section>`
   );
+};
+
+const createBoardTasksTemplate = () => {
+  return (`<div class="board__tasks"></div>`);
 };
 
 const createTaskTemplate = () => {
@@ -380,9 +382,10 @@ render(siteHeaderElement, createSiteMenuTemplate());
 render(siteMainElement, createFilterTemplate());
 render(siteMainElement, createBoardTemplate());
 
-const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 const boardElement = siteMainElement.querySelector(`.board`);
+render(boardElement, createBoardTasksTemplate());
 
+const taskListElement = siteMainElement.querySelector(`.board__tasks`);
 render(taskListElement, createTaskEditTemplate());
 
 for (let i = 0; i < TASK_COUNT; i++) {
